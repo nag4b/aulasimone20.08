@@ -1,0 +1,109 @@
+EXEMPLO1
+
+import math
+num = - 2 
+
+try:
+    result = math.sqrt(num)
+    print("A raiz quadrada", result)
+except Exception:
+    print ('Não existe raiz quadrada de um número negativo')
+EXEMPLO2
+import math
+num = 2
+
+try:
+    result = math.sqrt(num)
+    print("A raiz quadrada", result)
+except ValueError:
+    num = - num
+    print('Transformando n negativo em positivo')
+    result = math.sqrt(num) 
+    print('A raiz quadrada', result)
+EXEMPLO3
+
+try:
+    x = int(input("Enter number: "))
+    x = x + 1 
+    print(x)
+except:
+    print("Invalid input")
+
+EXEMPLO4
+try:
+    x = int(input("Enter number: "))
+    x = x + 1 
+    print(x)
+except:
+    print("Invalid input")
+finally:
+    print("Valid input")
+
+EXEMPLO5
+
+def dividir(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print("Division by zero")
+    else:
+        print("Result is", result)
+dividir(2, 2)
+
+EXEMPLO6
+
+def Divide():
+    try:
+        num1 = int(input("1 num:"))
+        num2 = int(input("2 num:"))
+        result = (num1 / num2)
+        print("Divisão:", result)
+    except ValueError:
+        print("dado informado inválido!")
+    except ZeroDivisionError:
+        print("Divisão por zero!")
+
+    Divide()
+
+EXEMPLO7
+
+try:
+    nome = input("Digite um nome: ")
+    if not nome.isalpha():
+        raise ValueError
+    print("O nome é válido.")
+except ValueError:
+    print("Erro: Os caracteres inseridos não são válidos")
+
+EXEMPLO8
+
+def ReadFile():
+    try:
+        print("Abrindo um Arquivo!")
+        open("texto.txt", "r")
+    except FileNotFoundError:
+     print("O arquivo não existe!")
+ReadFile()
+
+EXEMPLO9
+
+try:
+    print("Abrindo um Arquivo!")
+    open("texto.txt", "r")
+except FileNotFoundError as captura:
+    print(captura)
+EXEMPLO10
+
+import os
+try:
+    os.remove("teste.txt")
+    print("Arquivpo Removido!")
+except FileNotFoundError as erro:
+    print("Erro: ", erro)
+    print("Aviso: Arquivo Inexistente!")
+except PermissionError as erro:
+    print("Erro: ", erro)
+    print("Sem permissão de Acesso!")
+except IsADirectoryError as erro:
+    print("Erro: ", erro)
+    print("Tentando remover um diretório!")
