@@ -1,0 +1,10 @@
+try:
+    a = int(input("Digite o primeiro número inteiro: "))
+    b = int(input("Digite o segundo número inteiro: "))
+    resultado = a / b
+except ZeroDivisionError:
+    print("divisão por zero não é permitida.")
+except ValueError:
+    print("você deve digitar apenas números inteiros.")
+else:
+    print(f"Resultado: {resultado}")
