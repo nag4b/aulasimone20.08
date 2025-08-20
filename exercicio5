@@ -1,1 +1,18 @@
+try:
+    nome = input("Nome completo: ").strip()
+    if not nome or not nome.replace(" ", "").replace("-", "").replace("'", "").isalpha():
+        raise ValueError
+    nome = " ".join(p.capitalize() for p in nome.split())
+    caminho = input("Arquivo (ex.: nomes.txt): ").strip() or "nomes.txt"
+    with open(caminho, "a", encoding="utf-8") as f:
+        f.write(nome + "\n")
+    print("Salvo.")
+except ValueError:
+    print("Nome inválido.")
+except FileNotFoundError:
+    print("Diretório do arquivo não existe.")
+except PermissionError:
+    print("Sem permissão para escrever.")
+except OSError:
+    print("Não foi possível acessar o arquivo.")
 
