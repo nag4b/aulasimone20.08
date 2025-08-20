@@ -1,0 +1,11 @@
+def contar_palavras_e_linhas(nome_arquivo):
+    try:
+        with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
+            linhas = arquivo.readlines()
+            num_linhas = len(linhas)
+            num_palavras = sum(len(linha.split()) for linha in linhas)
+            return f"O arquivo '{nome_arquivo}' tem {num_linhas} linhas e {num_palavras} palavras."
+    except FileNotFoundError:
+        return f"Erro: O arquivo '{nome_arquivo}' não foi encontrado."
+
+print(contar_palavras_e_linhas('testeaula.txt'))
