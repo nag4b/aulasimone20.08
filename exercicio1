@@ -1,0 +1,7 @@
+try:
+    nome = input("Digite um nome: ").strip()
+    if not nome or not nome.replace(" ", "").isalpha():
+        raise ValueError
+    print(f"Nome válido: {nome}")
+except Exception:
+    print("Nome inválido")
