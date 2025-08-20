@@ -1,0 +1,15 @@
+import math
+
+try:
+    entrada = input("Digite números inteiros: ").strip()
+    if not entrada:
+        print("Erro: lista vazia.")
+        raise SystemExit
+    numeros = [int(n) for n in entrada.replace(",", " ").split()]
+    if any(n < 0 for n in numeros):
+        raise ArithmeticError
+    print(f"Fatoriais: {[math.factorial(n) for n in numeros]}")
+except ValueError:
+    print("Erro: A lista tem um item que não é um número.")
+except ArithmeticError:
+    print("Erro: A lista tem um número negativo.")
